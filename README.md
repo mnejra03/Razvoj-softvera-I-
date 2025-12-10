@@ -7,11 +7,8 @@ Ovaj repository sadrži zbirku ispitnih zadataka organizovanih po folderima. Fok
 🔧 Obuhvaćene tehnologije
 
 C# – osnovni i napredni koncepti, OOP, console aplikacije
-
 TypeScript – tipizacija, rad sa modulima i logika aplikacija
-
 JavaScript – algoritmi, DOM manipulacija i praktični zadaci
-
 HTML & CSS – struktura i stilizacija web stranica
 
 🎯 Cilj
