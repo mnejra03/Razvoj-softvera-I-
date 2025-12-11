@@ -1,1 +1,42 @@
 <p>student-semesters works!</p>
+
+<p>Student ID: {{student?.id}}</p>
+<p>Student first name: {{student?.firstName}}</p>
+<p>Student last name: {{student?.lastName}}</p>
+
+<table [dataSource]="dataSource!" mat-table matSort>
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
+    <mat-cell *matCellDef="let semester">{{semester.id}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="akademskaGodinaDescription">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Academic Year</mat-header-cell>
+    <mat-cell *matCellDef="let semester">{{semester.akademskaGodinaDescription}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="godinaStudija">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Year of Study</mat-header-cell>
+    <mat-cell *matCellDef="let semester">{{semester.godinaStudija}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="obnova">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Renewal</mat-header-cell>
+    <mat-cell *matCellDef="let semester">{{semester.obnova}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="datumUpisa">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Winter Semester</mat-header-cell>
+    <mat-cell *matCellDef="let semester">{{semester.datumUpisa}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="recordedByName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Recorded By</mat-header-cell>
+    <mat-cell *matCellDef="let semester">{{semester.recordedByName}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</table>

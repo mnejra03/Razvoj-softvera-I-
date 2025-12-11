@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RS1_2024_25.API.Data;
 
@@ -11,9 +12,11 @@ using RS1_2024_25.API.Data;
 namespace RS1_2024_25.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251211123234_AddedNewClassCalledSemester")]
+    partial class AddedNewClassCalledSemester
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,53 +203,6 @@ namespace RS1_2024_25.API.Migrations
                     b.HasIndex("CountryId");
 
                     b.ToTable("Regions", (string)null);
-                });
-
-            modelBuilder.Entity("RS1_2024_25.API.Data.Models.SharedTables.Semester", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AkademskaGodinaId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("CijenaSkolarine")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("DatumOvjere")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DatumUpisa")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GodinaStudija")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Napomena")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Obnova")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("RecordedById")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AkademskaGodinaId");
-
-                    b.HasIndex("RecordedById");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("Semesters", (string)null);
                 });
 
             modelBuilder.Entity("RS1_2024_25.API.Data.Models.SharedTables.Tenant", b =>
@@ -565,33 +521,6 @@ namespace RS1_2024_25.API.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("RS1_2024_25.API.Data.Models.SharedTables.Semester", b =>
-                {
-                    b.HasOne("RS1_2024_25.API.Data.Models.SharedTables.AcademicYear", "AkademskaGodina")
-                        .WithMany()
-                        .HasForeignKey("AkademskaGodinaId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("RS1_2024_25.API.Data.Models.TenantSpecificTables.Modul1_Auth.MyAppUser", "RecordedBy")
-                        .WithMany()
-                        .HasForeignKey("RecordedById")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("RS1_2024_25.API.Data.Models.TenantSpecificTables.Modul2_Basic.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("AkademskaGodina");
-
-                    b.Navigation("RecordedBy");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("RS1_2024_25.API.Data.Models.TenantSpecificTables.Modul1_Auth.MyAppUser", b =>
