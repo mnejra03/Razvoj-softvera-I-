@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{88D8E34A-713A-42BB-A5CC-246FA15BD7C0}|RS1_2024_25.API\\RS1_2024_25.API.csproj|c:\\users\\pc\\desktop\\razvoj softvera i\\razvoj-softvera-i-\\ispit - 1\\backend\\rs1_2024_25.api\\data\\models\\tenantspecifictables\\modul2_basic\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88D8E34A-713A-42BB-A5CC-246FA15BD7C0}|RS1_2024_25.API\\RS1_2024_25.API.csproj|solutionrelative:rs1_2024_25.api\\data\\models\\tenantspecifictables\\modul2_basic\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5477ADCF-1313-4BC3-AE25-F48EA72F8F4C}|RS1_2024_25.Tests\\RS1_2024_25.Tests.csproj|c:\\users\\pc\\desktop\\razvoj softvera i\\razvoj-softvera-i-\\ispit - 1\\backend\\rs1_2024_25.tests\\rs1_2024_25.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5477ADCF-1313-4BC3-AE25-F48EA72F8F4C}|RS1_2024_25.Tests\\RS1_2024_25.Tests.csproj|solutionrelative:rs1_2024_25.tests\\rs1_2024_25.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88D8E34A-713A-42BB-A5CC-246FA15BD7C0}|RS1_2024_25.API\\RS1_2024_25.API.csproj|c:\\users\\pc\\desktop\\razvoj softvera i\\razvoj-softvera-i-\\ispit - 1\\backend\\rs1_2024_25.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{88D8E34A-713A-42BB-A5CC-246FA15BD7C0}|RS1_2024_25.API\\RS1_2024_25.API.csproj|solutionrelative:rs1_2024_25.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{88D8E34A-713A-42BB-A5CC-246FA15BD7C0}|RS1_2024_25.API\\RS1_2024_25.API.csproj|c:\\users\\pc\\desktop\\razvoj softvera i\\razvoj-softvera-i-\\ispit - 1\\backend\\rs1_2024_25.api\\endpoints\\studentendpoints\\studentgetallendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88D8E34A-713A-42BB-A5CC-246FA15BD7C0}|RS1_2024_25.API\\RS1_2024_25.API.csproj|solutionrelative:rs1_2024_25.api\\endpoints\\studentendpoints\\studentgetallendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,40 +27,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Student.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.API\\Data\\Models\\TenantSpecificTables\\Modul2_Basic\\Student.cs",
-              "RelativeDocumentMoniker": "RS1_2024_25.API\\Data\\Models\\TenantSpecificTables\\Modul2_Basic\\Student.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.API\\Data\\Models\\TenantSpecificTables\\Modul2_Basic\\Student.cs",
-              "RelativeToolTip": "RS1_2024_25.API\\Data\\Models\\TenantSpecificTables\\Modul2_Basic\\Student.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Title": "StudentGetAllEndpoint.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.API\\Endpoints\\StudentEndpoints\\StudentGetAllEndpoint.cs",
+              "RelativeDocumentMoniker": "RS1_2024_25.API\\Endpoints\\StudentEndpoints\\StudentGetAllEndpoint.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.API\\Endpoints\\StudentEndpoints\\StudentGetAllEndpoint.cs",
+              "RelativeToolTip": "RS1_2024_25.API\\Endpoints\\StudentEndpoints\\StudentGetAllEndpoint.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwCEAAABnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T10:29:40.724Z",
+              "WhenOpened": "2025-12-11T11:15:56.673Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RS1_2024_25.Tests.csproj",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.Tests\\RS1_2024_25.Tests.csproj",
-              "RelativeDocumentMoniker": "RS1_2024_25.Tests\\RS1_2024_25.Tests.csproj",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.Tests\\RS1_2024_25.Tests.csproj",
-              "RelativeToolTip": "RS1_2024_25.Tests\\RS1_2024_25.Tests.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-10T19:17:07.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.API\\appsettings.json",
-              "RelativeDocumentMoniker": "RS1_2024_25.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Razvoj softvera I\\Razvoj-softvera-I-\\Ispit - 1\\backend\\RS1_2024_25.API\\appsettings.json",
-              "RelativeToolTip": "RS1_2024_25.API\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-10T19:07:19.74Z"
             }
           ]
         }

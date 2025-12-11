@@ -34,6 +34,9 @@ export class StudentsComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog
   ) {}
 
+  private cache: Map<string, {timestamp:number, data:StudentGetAllResponse[], totalCount:number}> = new Map();
+  private cacheDurationMs = 30_000;
+
   ngOnInit(): void {
     this.initSearchListener();
     this.fetchStudents();
@@ -61,6 +64,16 @@ export class StudentsComponent implements OnInit, AfterViewInit {
   }
 
   fetchStudents(filter: string = '', page: number = 1, pageSize: number = 5): void {
+    const cacheKey = `${filter}|${page}|${pageSize}`;
+    const now = Date.now();
+    const cached = this.cache.get(cacheKey);
+
+    if(cached && (now - cached.timestamp < this.cacheDurationMs)) {
+      this.dataSource = new MatTableDataSource<StudentGetAllResponse>(cached.data);
+      this.paginator.length = cached.totalCount;
+      return;
+    }
+
     this.studentGetService.handleAsync({
       q: filter,
       pageNumber: page,
@@ -69,6 +82,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
       next: (data) => {
         this.dataSource = new MatTableDataSource<StudentGetAllResponse>(data.dataItems);
         this.paginator.length = data.totalCount;
+        this.cache.set(cacheKey,{timestamp:now,data:data.dataItems,totalCount:data.totalCount});
       },
       error: (err) => {
         this.snackbar.showMessage('Error fetching students. Please try again.', 5000);

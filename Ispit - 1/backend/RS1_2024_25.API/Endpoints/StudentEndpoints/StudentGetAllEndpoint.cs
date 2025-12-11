@@ -26,12 +26,12 @@ public class StudentGetAllEndpoint(ApplicationDbContext db) : MyEndpointBaseAsyn
         // Primjena filtera po imenu, prezimenu, student broju ili državi
         if (!string.IsNullOrWhiteSpace(request.Q))
         {
-            query = query.Where(s =>
-                s.User.FirstName.Contains(request.Q) ||
-                s.User.LastName.Contains(request.Q) ||
-                s.StudentNumber.Contains(request.Q) ||
-                (s.Citizenship != null && s.Citizenship.Name.Contains(request.Q))
-            );
+            var q = request.Q.ToLower();
+            
+            query = query.Where(s => (s.User.FirstName + " " + s.User.LastName).ToLower().Contains(q) ||
+                                     (s.User.LastName + " " + s.User.FirstName).ToLower().Contains(q) ||
+                                     s.StudentNumber.ToLower().Contains(q) ||
+                                     (s.Citizenship != null && s.Citizenship.Name.ToLower().Contains(q)));
         }
 
         // Projektovanje u DTO tip za rezultat
