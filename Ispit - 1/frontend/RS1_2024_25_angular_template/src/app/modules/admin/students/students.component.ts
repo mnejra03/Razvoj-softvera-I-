@@ -37,6 +37,17 @@ export class StudentsComponent implements OnInit, AfterViewInit {
   private cache: Map<string, {timestamp:number, data:StudentGetAllResponse[], totalCount:number}> = new Map();
   private cacheDurationMs = 30_000;
 
+  showDeleted = true;
+  allStudents : StudentGetAllResponse[] = [];
+
+  applyDeletedFilter():void{
+    let filtered = this.showDeleted ?
+                                        this.allStudents : this.allStudents.filter(s => !s.isDeleted);
+    this.dataSource = new MatTableDataSource<StudentGetAllResponse>(filtered);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
   ngOnInit(): void {
     this.initSearchListener();
     this.fetchStudents();
@@ -70,6 +81,7 @@ export class StudentsComponent implements OnInit, AfterViewInit {
 
     if(cached && (now - cached.timestamp < this.cacheDurationMs)) {
       this.dataSource = new MatTableDataSource<StudentGetAllResponse>(cached.data);
+      //this.applyDeletedFilter();
       this.paginator.length = cached.totalCount;
       return;
     }
@@ -80,7 +92,9 @@ export class StudentsComponent implements OnInit, AfterViewInit {
       pageSize: pageSize
     }).subscribe({
       next: (data) => {
-        this.dataSource = new MatTableDataSource<StudentGetAllResponse>(data.dataItems);
+        //this.dataSource = new MatTableDataSource<StudentGetAllResponse>(data.dataItems);
+        this.allStudents = data.dataItems;
+        this.applyDeletedFilter();
         this.paginator.length = data.totalCount;
         this.cache.set(cacheKey,{timestamp:now,data:data.dataItems,totalCount:data.totalCount});
       },

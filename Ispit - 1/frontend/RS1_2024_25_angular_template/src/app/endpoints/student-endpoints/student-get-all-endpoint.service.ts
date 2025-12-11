@@ -21,6 +21,7 @@ export interface StudentGetAllResponse {
   studentNumber: string;
   citizenship?: string; // Državljanstvo
   birthMunicipality?: string; // Općina rođenja
+  isDeleted?: boolean;
 }
 
 @Injectable({

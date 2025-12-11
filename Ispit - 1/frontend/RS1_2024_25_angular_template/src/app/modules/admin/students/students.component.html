@@ -9,6 +9,8 @@
   </mat-form-field>
 </div>
 
+<mat-checkbox [(ngModel)]="showDeleted" (change)="applyDeletedFilter()">Prikazi/sakrij obrisane</mat-checkbox>
+
 <div *ngIf="dataSource.data.length === 0" class="no-data">
   <p>No students to display.</p>
 </div>
@@ -17,19 +19,19 @@
   <!-- First Name Column -->
   <ng-container matColumnDef="firstName">
     <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
-    <mat-cell *matCellDef="let student">{{ student.firstName }}</mat-cell>
+    <mat-cell *matCellDef="let student" [ngClass]="{'obrisano':student.isDeleted}">{{ student.firstName }}</mat-cell>
   </ng-container>
 
   <!-- Last Name Column -->
   <ng-container matColumnDef="lastName">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
-    <mat-cell *matCellDef="let student">{{ student.lastName }}</mat-cell>
+    <mat-cell *matCellDef="let student" [ngClass]="{'obrisano':student.isDeleted}">{{ student.lastName }}</mat-cell>
   </ng-container>
 
   <!-- Student Number Column -->
   <ng-container matColumnDef="studentNumber">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Student Number</mat-header-cell>
-    <mat-cell *matCellDef="let student">{{ student.studentNumber }}</mat-cell>
+    <mat-cell *matCellDef="let student" [ngClass]="{'obrisano':student.isDeleted}">{{ student.studentNumber }}</mat-cell>
   </ng-container>
 
   <!-- Actions Column -->
