@@ -7,9 +7,13 @@
     <app-my-input-text myControlName="lastName" myLabel="Last Name" myPlaceholder="Enter last name"></app-my-input-text>
     <app-my-input-text myControlName="studentNumber" myLabel="Student Number" myPlaceholder="Enter student number"></app-my-input-text>
 
+    <app-my-input-text myControlName="birthDate" myLabel="Date of Birth" myPlaceholder="dd.MM.yyyy" [type]="'Date'"></app-my-input-text>
+
     <app-my-dropdown [options]="genders" myControlName="gender" myLabel="Gender"></app-my-dropdown>
-    <app-my-dropdown [options]="municipalities" myControlName="birthMunicipalityId" myLabel="Birth Municipality"></app-my-dropdown>
-    <app-my-dropdown [options]="municipalities" myControlName="permanentMunicipalityId" myLabel="Permanent Municipality"></app-my-dropdown>
+
+    <app-my-dropdown [options]="countries" myControlName="countryId" myLabel="Country"></app-my-dropdown>
+    <app-my-dropdown [options]="filteredMunicipalities" myControlName="birthMunicipalityId" myLabel="Birth Municipality"></app-my-dropdown>
+    <app-my-dropdown [options]="filteredMunicipalities" myControlName="permanentMunicipalityId" myLabel="Permanent Municipality"></app-my-dropdown>
 
     <app-my-input-text myControlName="contactMobilePhone" myLabel="Mobile Phone" myPlaceholder="Enter mobile phone"></app-my-input-text>
     <app-my-input-text myControlName="contactPrivateEmail" myLabel="Email" myPlaceholder="Enter email"></app-my-input-text>

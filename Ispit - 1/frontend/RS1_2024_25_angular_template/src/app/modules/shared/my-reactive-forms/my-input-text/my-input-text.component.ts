@@ -25,6 +25,7 @@ export class MyInputTextComponent extends MyBaseFormControlComponent implements 
 
   @Input() override customMessages: Record<string, string> = {}; // Dodano!
   @Input() override myControlName: string = "";
+  @Input() type: string = 'text';
 
   constructor(protected override controlContainer: ControlContainer) {
     super(controlContainer);

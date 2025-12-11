@@ -15,6 +15,7 @@ import {
   MunicipalityLookupResponse
 } from '../../../../endpoints/lookup-endpoints/municipality-lookup-endpoint.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {CountryLookupEndpointService} from '../../../../endpoints/lookup-endpoints/country-lookup-endpoint.service';
 
 @Component({
   selector: 'app-student-edit',
@@ -31,6 +32,8 @@ export class StudentEditComponent implements OnInit {
     { id: Gender.Other, name: 'Other' }
   ];
   municipalities: MunicipalityLookupResponse[] = [];
+  countries: {id:number, name:string}[]=[];
+  filteredMunicipalities: MunicipalityLookupResponse[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -39,7 +42,8 @@ export class StudentEditComponent implements OnInit {
     private studentGetByIdService: StudentGetByIdEndpointService,
     private studentUpdateService: StudentUpdateOrInsertEndpointService,
     private municipalityLookupService: MunicipalityLookupEndpointService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private countryService: CountryLookupEndpointService,
   ) {
     this.studentId = 0;
 
@@ -50,8 +54,13 @@ export class StudentEditComponent implements OnInit {
       gender: [null, [Validators.required]],
       birthMunicipalityId: [null],
       permanentMunicipalityId: [null],
-      contactMobilePhone: ['', /*[Validators.pattern('^\\+?[0-9]{7,15}$')]*/],
+      contactMobilePhone: ['', [Validators.required,
+                                Validators.pattern('^06\\d-\\d{3}-\\d{3}')]],
       contactPrivateEmail: ['', [Validators.email]],
+      birthDate:[null, [Validators.required,
+                        Validators.min(new Date(1900,0,1).getTime()),
+                        Validators.max(new Date().getTime())]],
+      countryId:[null, [Validators.required]],
     });
   }
 
@@ -61,6 +70,16 @@ export class StudentEditComponent implements OnInit {
       this.loadStudentData();
     }
     this.loadMunicipalities();
+    this.countryService.handleAsync().subscribe(
+      {
+        next: (data) => {
+          this.countries = data;
+        },
+        error: (err) => {
+          console.log('Failed to load countries.',err);
+        }
+      }
+    )
   }
 
   loadStudentData(): void {
@@ -75,7 +94,12 @@ export class StudentEditComponent implements OnInit {
           permanentMunicipalityId: student.permanentMunicipalityId,
           contactMobilePhone: student.contactMobilePhone,
           contactPrivateEmail: student.contactPrivateEmail,
+          birthDate: student.birthDate,
+          countryId:[null]
         });
+      this.studentForm.get('countryId')?.valueChanges.subscribe((countryId) => {
+        this.filteredMunicipalities = this.municipalities.filter(m => m.countryID === countryId);
+      })
       },
       error: (error) => {
         this.snackBar.open('Error loading student data. Please try again.', 'Close', { duration: 5000 });
@@ -115,4 +139,6 @@ export class StudentEditComponent implements OnInit {
       },
     });
   }
+
+  protected readonly Date = Date;
 }
