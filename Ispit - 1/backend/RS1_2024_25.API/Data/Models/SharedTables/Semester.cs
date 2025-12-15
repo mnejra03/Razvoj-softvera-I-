@@ -17,8 +17,8 @@ namespace RS1_2024_25.API.Data.Models.SharedTables
 
         public float CijenaSkolarine { get; set; }
         public bool Obnova {  get; set; }
-        public DateTime DatumOvjere { get; set; }
-        public string Napomena { get; set; }
+        //public DateTime DatumOvjere { get; set; }
+        //public string Napomena { get; set; }
 
 
         [ForeignKey(nameof(Student))]

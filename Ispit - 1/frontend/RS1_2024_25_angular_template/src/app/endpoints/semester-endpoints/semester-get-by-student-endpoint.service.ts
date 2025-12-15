@@ -12,12 +12,20 @@ export interface SemesterReadResponse{
   akademskaGodinaDescription: string;
   cijenaSkolarine: string;
   obnova: boolean;
-  datumOvjere: Date;
-  napomena: string;
   studentId: number;
   student: StudentGetByIdResponse;
   recordedById: number;
   recordedByName: string;
+}
+
+export interface SemesterRequest{
+  studentId: number;
+  datumUpisa: Date;
+  godinaStudija: number;
+  akademskaGodinaId: number;
+  recordedById: number;
+  obnova: boolean;
+  cijenaSkolarine: number;
 }
 
 @Injectable({
@@ -31,5 +39,9 @@ export class SemesterGetByStudentEndpointService {
 
   getSemesters(id: number){
     return this.httpClient.get<SemesterReadResponse[]>(`${this.apiUrl}/${id}`);
+  }
+
+  createSemester(request: any){
+    return this.httpClient.post(`${this.apiUrl}/create`, request);
   }
 }

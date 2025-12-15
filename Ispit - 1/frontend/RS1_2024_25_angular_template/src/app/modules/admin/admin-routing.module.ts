@@ -18,6 +18,9 @@ import {
 import {StudentsComponent} from './students/students.component';
 import {StudentEditComponent} from './students/student-edit/student-edit.component';
 import {StudentSemestersComponent} from './students/student-semesters/student-semesters.component';
+import {
+  StudentSemestersNewComponent
+} from './students/student-semesters/student-semesters-new/student-semesters-new.component';
 
 //komentar
 const routes: Routes = [
@@ -39,6 +42,7 @@ const routes: Routes = [
       {path: 'students', component: StudentsComponent},
       {path: 'students/edit/:id', component: StudentEditComponent},
       {path: 'students/semesters/:id', component: StudentSemestersComponent},
+      {path: 'students/semesters/new-semester/:id', component: StudentSemestersNewComponent},
       {path: 'destination', component: DestinationComponent},
       {path: 'order', component: ReservationComponent},
       {path: 'chat', component: MyChatComponent},

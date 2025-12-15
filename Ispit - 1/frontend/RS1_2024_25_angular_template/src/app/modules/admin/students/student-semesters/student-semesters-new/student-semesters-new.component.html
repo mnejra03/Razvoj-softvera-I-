@@ -1,1 +1,45 @@
 <p>student-semesters-new works!</p>
+
+<p>New semester for {{student?.firstName}} {{student?.lastName}}</p>
+
+<mat-card>
+
+  <form (ngSubmit)="saveSemester()" [formGroup]="semesterForm">
+
+  <mat-form-field>
+    <mat-label>Datum</mat-label>
+    <input matInput [matDatepicker]="picker" required formControlName="datumUpisa">
+
+    <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Godina studija</mat-label>
+      <input matInput formControlName="godinaStudija" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Akademska godina</mat-label>
+      <mat-select required formControlName="akademskaGodina">
+        <mat-option *ngFor="let godina of akademskeGodine" [value]="godina.id">
+          {{godina.description}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Cijena skolarine</mat-label>
+      <input formControlName="cijenaSkolarine" matInput>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="obnova">Obnova</mat-checkbox>
+
+    <div>
+      <button [disabled]="semesterForm.invalid" mat-button>Save changes</button>
+      <button mat-button (click)="goBack(studentId)">Cancel</button>
+    </div>
+
+  </form>
+
+</mat-card>
